@@ -1,0 +1,29 @@
+{
+    "menuView?menuId=377": [{
+        "source": "local",
+        "url": "eb_scripts/eB_377.js"
+    },
+    {
+        "source": "local",
+        "url": "eb_scripts/eB_common.js"
+    },
+    {
+        "source": "remote",
+        "url": "eb_scripts/eb_memberselectbox.js"
+    },
+    {
+        "source": "remote",
+        "url": "eb_scripts/eB_auth.js"
+    }
+    ],
+    "menuView?menuId=282": [
+    {
+        "source": "local",
+        "url": "eb_scripts/eB_common.js"
+    },
+    {
+        "source": "remote",
+        "url": "eb_scripts/eB_auth.js"
+    }
+    ]
+}
