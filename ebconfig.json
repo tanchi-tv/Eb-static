@@ -24,7 +24,8 @@
     {
         "source": "remote",
         "url": "eb_scripts/eB_auth.js"
-    },
+    }
+    ],
     "menuView?menuId=419": [
     {
         "source": "local",
