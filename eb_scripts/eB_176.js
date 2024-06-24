@@ -39,7 +39,7 @@ function chainPost(url, arrayParams, arrayBody, callback){
 		$.ajax({
 			type: 'POST',
 			url: url,
-			params: arrayParams[idx],
+			data: arrayParams[idx],
 			success: function(data) {
 				console.log('余额转移' + idx + '返回成功');
 				console.log(url + arrayParams[idx])
