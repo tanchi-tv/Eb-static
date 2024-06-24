@@ -269,20 +269,20 @@ function confirmBindClaims() {
 			return false;
 		}
     }
-    if (type == 1) {
+    if (type == "124786") {
         memberId = "124786"
     }
-    if (type == 2) {
+    if (type == "124787") {
         memberId = "124787"
     }
-    if (type == 3) {
+    if (type == "124781") {
         memberId = "124781"
     }
     var arrayParams = []
     for (let i = 0; i < selections.length; i++) {
 		var writeOffInfo = {
-			memberId: toString(memberId),
-			writeOff: toString(selections[i].writeoffBalance),
+			memberId: memberId,
+			writeOff: selections[i].writeoffBalance.toString(),
 			array: []
 		};
 		writeOffInfo = JSON.stringify(writeOffInfo)
