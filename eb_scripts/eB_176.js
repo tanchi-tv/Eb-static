@@ -38,7 +38,8 @@ function chainPost(url, arrayParams, arrayBody, callback){
 	var _ajax =  function() {
 		$.ajax({
 			type: 'POST',
-			url: url + arrayParams[idx],
+			url: url,
+			params: arrayParams[idx],
 			success: function(data) {
 				console.log('余额转移' + idx + '返回成功');
 				console.log(url + arrayParams[idx])
@@ -286,10 +287,18 @@ function confirmBindClaims() {
 			array: []
 		};
 		writeOffInfo = JSON.stringify(writeOffInfo)
-        arrayParams.push('masterMemberId=' + memberId +'&slaveMemberId=&diffFile=&serialNo=' + selections[i].serialNo + '&writeOffInfo=' + writeOffInfo + '&comment=认领理赔款')
+		//'masterMemberId=' + memberId +'&slaveMemberId=&diffFile=&serialNo=' + selections[i].serialNo + '&writeOffInfo=' + writeOffInfo + '&comment=认领理赔款'
+        arrayParams.push({
+			masterMemberId: memberId,
+			slaveMemberId: '',
+			diffFile: '',
+			serialNo: selections[i].serialNo,
+			writeOffInfo: writeOffInfo,
+			comment: '认领理赔款'
+		})
     }
     js.loading("数据正在提交处理中...");
-    chainPost(basePath + '/accountCurrent/writeOffAllToMembers?', arrayParams, undefined, function(){
+    chainPost(basePath + '/accountCurrent/writeOffAllToMembers', arrayParams, undefined, function(){
         //完成后刷新表格 关闭窗口
         js.show("操作成功");
         //$("#batchAllowWriteoffForm_updateNote").textbox("clear");
