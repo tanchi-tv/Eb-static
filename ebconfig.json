@@ -35,5 +35,15 @@
         "source": "remote",
         "url": "eb_scripts/eB_auth.js"
     }
+    ],
+    "menuView?menuId=176": [
+    {
+        "source": "local",
+        "url": "eb_scripts/eB_common.js"
+    },
+    {
+        "source": "remote",
+        "url": "eb_scripts/eB_176.js"
+    }
     ]
 }
