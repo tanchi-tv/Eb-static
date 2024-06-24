@@ -212,7 +212,7 @@ function bindClaims() {
         return false;
     }
     for (let i = 0; i < selections.length; i++) {
-        if (!isActionableButton(rows[i])){
+        if (!isActionableButton(selections[i])){
 			cantActionableButtonMsg("绑定理赔款");
 			return false;
 		}
