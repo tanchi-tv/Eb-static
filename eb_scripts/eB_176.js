@@ -1,4 +1,6 @@
 newInitClaimDialog = false
+var panel = $('.datagrid-toolbar:first')
+$('<a class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" btnid="toOffline" iconcls="icon-invoice" onclick="bindClaims()" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">批量认领理赔款</span><span class="l-btn-icon icon-invoice"></span></span></a>').appendTo(panel)
 
 // 防止异步执行一次性请求太多 实现一个简易链式Post
 function chainPost(url, arrayParams, arrayBody, callback){
@@ -281,7 +283,7 @@ function confirmBindClaims() {
         arrayParams.push('serialId=' + selections[i].serialId + '&note=认领理赔款')
     }
     js.loading("数据正在提交处理中...");
-    chainPost(basePath + 'accountCurrent/writeOffAllToMembers?', arrayParams, undefined, function(){
+    chainPost(basePath + '/accountCurrent/writeOffAllToMembers?', arrayParams, undefined, function(){
         //完成后刷新表格 关闭窗口
         js.show("操作成功");
         //$("#batchAllowWriteoffForm_updateNote").textbox("clear");
