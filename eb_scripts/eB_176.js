@@ -280,7 +280,13 @@ function confirmBindClaims() {
     }
     var arrayParams = []
     for (let i = 0; i < selections.length; i++) {
-        arrayParams.push('serialId=' + selections[i].serialId + '&note=认领理赔款')
+		var writeOffInfo = {
+			memberId: toString(memberId),
+			writeOff: toString(selections[i].writeoffBalance),
+			array: []
+		};
+		writeOffInfo = JSON.stringify(writeOffInfo)
+        arrayParams.push('masterMemberId' + memberId +'slaveMemberId=&diffFile=&serialNo=' + selections[i].serialNo + 'writeOffInfo=' + writeOffInfo + '&comment=认领理赔款')
     }
     js.loading("数据正在提交处理中...");
     chainPost(basePath + '/accountCurrent/writeOffAllToMembers?', arrayParams, undefined, function(){
