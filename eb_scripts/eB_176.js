@@ -253,6 +253,7 @@ function bindClaims() {
 
 function confirmBindClaims() {
     var memberId = ''
+	var msg = ''
     var type = $("input[name='bindClaimType']:checked").val()
     if (type == null || type == '' || type == undefined){
         js.warning("请选择绑定理赔款类型");
@@ -271,13 +272,16 @@ function confirmBindClaims() {
 		}
     }
     if (type == "124786") {
-        memberId = "124786"
+        memberId = "124786";
+		msg = "生育津贴"
     }
     if (type == "124787") {
         memberId = "124787"
+		msg = "工伤理赔"
     }
     if (type == "124781") {
         memberId = "124781"
+		msg = "商保理赔"
     }
     var arrayParams = []
     for (let i = 0; i < selections.length; i++) {
@@ -297,7 +301,7 @@ function confirmBindClaims() {
 			comment: '认领理赔款'
 		})
     }
-	js.confirm("是否认领至" + $("input[name='bindClaimType']:checked").text() + "?", () => {
+	js.confirm("是否认领至" + msg + "?", () => {
 		js.loading("数据正在提交处理中...");
 	    	chainPost(basePath + '/accountCurrent/writeOffAllToMembers', arrayParams, undefined, function(){
 	        //完成后刷新表格 关闭窗口
