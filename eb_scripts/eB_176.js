@@ -299,14 +299,14 @@ function confirmBindClaims() {
     }
 	js.confirm("是否认领至" + $("input[name='bindClaimType']:checked").text() + "?", () => {
 		js.loading("数据正在提交处理中...");
-    	chainPost(basePath + '/accountCurrent/writeOffAllToMembers', arrayParams, undefined, function(){
-        //完成后刷新表格 关闭窗口
-        js.show("操作成功");
-        //$("#batchAllowWriteoffForm_updateNote").textbox("clear");
-        $('#bindClaimDlg').dialog('close');
-        $("#datagrid").datagrid("reload");
-        js.closeLoading();
-    });
+	    	chainPost(basePath + '/accountCurrent/writeOffAllToMembers', arrayParams, undefined, function(){
+	        //完成后刷新表格 关闭窗口
+	        js.show("操作成功");
+	        //$("#batchAllowWriteoffForm_updateNote").textbox("clear");
+	        $('#bindClaimDlg').dialog('close');
+	        $("#datagrid").datagrid("reload");
+	        js.closeLoading();
+	    });
 	});
 }
 
